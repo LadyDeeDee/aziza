@@ -1,6 +1,8 @@
 import { Component } from "react";
-import { registration } from "../../server/controllers/authController";
-import { Product } from "../../server/models/models";
+import { Registration } from "../src/components/Registration/Registration";
+import ProductPage   from "./pages/ProductPage";
+import  Shop     from "./pages/Shop";
+import Auth  from "./pages/Auth";
 import Admin from "./pages/Admin";
 import Basket from "./pages/Basket";
 import ContactForm from "./pages/ContactForm";
@@ -36,6 +38,6 @@ export const  publicRoutes = [
     },
     {
         path: PRODUCT_ROUTE + '/id',
-        Component: Product
+        Component: ProductPage
     }
 ]

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes, Roure, Navigate} from 'react-router-dom'
+import {Routes, Route, Navigate} from 'react-router-dom'
 import {authRoutes, publicRoutes} from '../routes'
 import { SHOP_ROUTE } from '../utils/consts';
 
