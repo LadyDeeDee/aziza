@@ -6,8 +6,8 @@ const checkRole = require('../middleware/checkRoleMiddleware')
 router.post('/', checkRole('ADMIN'),storageController.create)
 router.get('/', storageController.getAll)
 router.get('/:id', storageController.getOne)
-router.delete('/',)
-router.put('/',)
+router.delete('/', storageController.destroy)
+router.put('/', storageController.update)
 
 
 module.exports = router

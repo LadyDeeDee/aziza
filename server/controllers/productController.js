@@ -20,6 +20,7 @@ class ProductController{
             next(ApiError.badRequest(e.message))
         }
     }
+    
     async getAll(req, res, next){
         const {category_id} = req.params
         if (!category_id){
