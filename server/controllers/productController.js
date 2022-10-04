@@ -9,39 +9,47 @@ const { rmSync } = require('fs')
 class ProductController{
     async create(req, res, next){
         try{
-        const{id, category_id, title, description, unitPrice} = req.body// название Product
+        const{category_id, title, description, unit_price} = req.body// название Product
         const {pictures} = req.files
         let fileName = UUIDV4 + ".jpg"
         img.mv(path.resolve(__dirname, '..', 'static', fileName))
 
-        const product = await Product.create({id, category_id, title, description, unitPrice, img: fileName})// создание product
-        return res.json(product)
+        const product = await Product.create({id, category_id, title, description, unit_price, img: fileName})// создание product
+        return res.status(201).json(product)
         } catch(e) {
             next(ApiError.badRequest(e.message))
         }
     }
-    async getAll(req, res){
-        const {category_id} = req.query
-        let products;
+    async getAll(req, res, next){
+        const {category_id} = req.params
         if (!category_id){
-          products = await Product.findAll({category_id})
+          const products = await Product.findAll({category_id})
+          return res.status(200).json(products)
         }
-        return res.json(products)
+        next(ApiError.notFound(e.message))
     }
 
     async getOne(req, res){
         const {id} = req.params
         const product = await Product.findOne(
-            {id}, [{title, description, unit_price}]
+            {id}
         ) 
-    return res.json(product);
+    return res.status(200).json(product);
 }
         
     async delete(req, res){
-        
+        const {id} = req.params
+        const product = await Product.destroy({id}) 
+        return res.status(200).json("Le produit est bien supprimé ");
     }
+
     async put(req, res){
-        
+        const {id} = req.params
+        const product = await Product.update(
+            {id}, [{title, description, unit_price}]
+        )
+    return res.status(200).json(product);
     }
-}
+} 
+
 module.exports = new ProductController()

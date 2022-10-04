@@ -11,18 +11,26 @@ class StorageController{
             return res.json(id, product_id, quantity, color, size)
         }
     async getAll(req, res){
-        
+        const storage = req.params
+        await Storage.getAll()
+        return res.json(storage)
     }
 
     async getOne(req, res){
-        
+        const storage = req.params
+        await Storage.getOne()
+        return res.json(storage)
     }
 
     async delete(req, res){
-        
+        const storage = req.params
+        await Storage.destroy()
+        return res.status(200).json('Le produit est bien supprimé')
     }
     async put(req, res){
-        
+        const storage = req.params
+        await Storage.update()
+        return res.json(storage)
     }
 }
 

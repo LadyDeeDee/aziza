@@ -8,13 +8,12 @@ const fileUpload = require ('express-fileupload')
 const router = require('./routes/index')
 const errorHandler = require('./middleware/ErrorHandlingMiddleware')
 const path = require('path')
-const bodyParser = require('body-parser')
+
 
 const app = express()
 
-// bodyParser.urlencoded({extended: false})
 app.use(cors())// 
-app.use(express.urlencoded())
+app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpload({}))
 app.use('/api', router)
@@ -25,7 +24,7 @@ app.use(errorHandler)
 const start = async () => { //функция для подключения к базе данных; она асихронна, так как все операции с БД -асинхронны
  try{ //функцию оборачиваем в блок try-catch для отлова потенциально возможных ошибок
    await sequelize.authenticate()//функция, с помощью к. б. устанавливаться подключение к БД
-   await sequelize.sync({alter: true, force: true})//функция, к. б. сверять состояние БД со описанной нами схемой
+   await sequelize.sync({alter: false, force: true})//функция, к. б. сверять состояние БД со описанной нами схемой
     app.listen(3001, () => console.log(`Server started on port 3001`))
 } catch (e) {
     console.log(e)

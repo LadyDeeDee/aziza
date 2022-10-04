@@ -3,9 +3,9 @@ const {DataTypes} = require('sequelize')//класс DataTypes объектаы 
 
 const User = sequelize.define('user', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true,},
-    name: {type: DataTypes.STRING, allowNull: false,},
-    surname: {type: DataTypes.STRING, allowNull: false,},
-    dateOfBirth: {type: DataTypes.DATE, allowNull: false,},
+    name: {type: DataTypes.STRING, allowNull: true,},
+    surname: {type: DataTypes.STRING, allowNull: true,},
+    dateOfBirth: {type: DataTypes.DATE, allowNull: true,},
     phone: {type: DataTypes.INTEGER, allowNull: false,},
     email: {type: DataTypes.STRING, unique: true, allowNull: false,},
     password: {type: DataTypes.STRING, allowNull: false,},
@@ -59,7 +59,11 @@ OrderDetails.belongsTo(Order)
 OrderDetails.hasMany(Product)
 Product.belongsTo(OrderDetails)
 
-Category.hasMany(Product)
+Category.hasMany(Product, { 
+    foreignKey: {
+        allowNull: true 
+    }
+})
 Product.belongsTo(Category)
 
 Product.hasOne(Storage)
