@@ -5,32 +5,32 @@ const ApiError = require('../error/ApiError')
 class StorageController{
 
     async create(req, res){
-            const{id, product_id, quantity, color, size} = req.body// название Storage
+            const{product_id, quantity, color, size} = req.body// название Storage
             const {pictures} = req.files
             const storage = await Storage.create({})// создание storage
-            return res.json(id, product_id, quantity, color, size)
+            return res.status(201).json(storage)
         }
     async getAll(req, res){
         const storage = req.params
-        await Storage.getAll()
-        return res.json(storage)
+        const storages = await Storage.getAll()
+        return res.status(200).json(storages)
     }
 
     async getOne(req, res){
-        const storage = req.params
-        await Storage.getOne()
-        return res.json(storage)
+        const {id} = req.params
+        const storage = await Storage.getOne()
+        return res.status(200).json(storage)
     }
 
     async delete(req, res){
         const storage = req.params
-        await Storage.destroy()
-        return res.status(200).json('Le produit est bien supprimé')
+        const deletedStorage = await Storage.destroy()
+        return res.status(200).json('Le stokage est bien supprimé')
     }
     async put(req, res){
         const storage = req.params
-        await Storage.update()
-        return res.json(storage)
+        const updatedStorage = await Storage.update()
+        return res.status(200).json('Le stokage est bien renové')
     }
 }
 

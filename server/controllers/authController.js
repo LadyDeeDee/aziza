@@ -23,7 +23,7 @@ class AuthController{
         }
         const hashPassword = await bcrypt.hash(password, 5)
         const user = await User.create({email, phone, password: hashPassword})
-        const order = await Order.create({userId: user.id})
+        const order = await Order.create({userId: user.id, order_details_id})
         const token = generateJwt(user.id, user.email, user.role)
             return res.json({token})
     }

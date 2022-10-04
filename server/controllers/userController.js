@@ -17,19 +17,20 @@ class UserController{
     }
 
     async getOne(req, res){
+        const {id} = req.params
         const user = await User.getOne()
         return res.status(200).json(user)
     }
 
     async delete(req, res){
         const user = req.params
-        await User.destroy()
-        return res.status(200).json("L'utilisateur est bien supprimé ") 
+        const deletedUser = await User.destroy()
+        return res.status(200).json("L'utilisateur est bien supprimé") 
     }
     async put(req, res){
         const user = req.params
-        await User.update()
-        return res.status(200).json(user) 
+        const updatedUser = await User.update()
+        return res.status(200).json("Les données d'utilisateur sont bien renovées") 
     }
 }
 

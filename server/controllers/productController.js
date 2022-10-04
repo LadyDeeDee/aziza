@@ -31,24 +31,20 @@ class ProductController{
 
     async getOne(req, res){
         const {id} = req.params
-        const product = await Product.findOne(
-            {id}
-        ) 
-    return res.status(200).json(product);
+        const product = await Product.findOne() 
+        return res.status(200).json(product);
 }
         
     async delete(req, res){
         const {id} = req.params
-        const product = await Product.destroy({id}) 
-        return res.status(200).json("Le produit est bien supprimé ");
+        const product = await Product.destroy() 
+        return res.status(200).json("Le produit est bien supprimé");
     }
 
     async put(req, res){
         const {id} = req.params
-        const product = await Product.update(
-            {id}, [{title, description, unit_price}]
-        )
-    return res.status(200).json(product);
+        const product = await Product.update()
+        return res.status(200).json("Le produit est bien renové");
     }
 } 
 

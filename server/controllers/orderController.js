@@ -3,29 +3,28 @@ const ApiError = require('../error/ApiError')
 
 class OrderController{
     async create(req, res){
-        const{id, user_id, order_id} = req.body// название Order
+        const{user_id, order_details_id} = req.body// название Order
         const order = await Order.create({})// создание order
-        return res.json(id, user_id, order_id)
+        return res.status(201).json(order)
     }
     async getAll(req, res){
-        const order = req.params
-        await Order.getAll()
-        return res.json(order)
+        const orders = await Order.getAll()
+        return res.status(200).json(orders)
     }
     async getOne(req, res){
         const {id} = req.params
-        await Order.getOne()
-        return res.json(id)
+        const order = await Order.getOne()
+        return res.status(200).json(order)
     }
     async delete(req, res){
-        const order = req.params
-        await Order.destroy()
-        return resres.status(200).json("La commande est bien supprimée")  
+        const {id} = req.params
+        const deletedOrder = await Order.destroy()
+        return res.status(200).json("La commande est bien supprimée")  
     }
     async put(req, res){
-        const order = req.params
-        await Order.update()
-        return res.json(order)  
+        const {id} = req.params
+        const updatedOrder = await Order.update()
+        return res.status(200).json("La commande est bien renovée")  
     }
 }
 module.exports = new OrderController ()
