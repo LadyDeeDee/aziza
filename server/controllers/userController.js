@@ -10,8 +10,8 @@ class UserController{
         const user = await User.create({})// создание user
         return res.status(201).json(user)
         } catch (e) {
-        res.status(500).json(e)
-        }
+         next(ApiError.badRequest(e.message))
+    }
     }
 
     async getAll(req, res) {
@@ -19,7 +19,7 @@ class UserController{
         let users = await User.findAll()
         return res.status(200).json(users)
         } catch (e) {
-        res.status(500).json(e)
+        next(ApiError.notFound(e.message))
         } 
     }
 
@@ -29,7 +29,7 @@ class UserController{
         const user = await User.getOne()
         return res.status(200).json(user)
         } catch (e) {
-        res.status(500).json(e)
+        next(ApiError.notFound(e.message))
         } 
     }
 
@@ -39,7 +39,7 @@ class UserController{
         const deletedUser = await User.destroy()
         return res.status(200).json("L'utilisateur est bien supprimé")
         } catch (e) {
-        res.status(500).json(e)
+        next(ApiError.internal(e.message))
         }  
     }
 
@@ -49,7 +49,7 @@ class UserController{
         const updatedUser = await User.update()
         return res.status(200).json("Les données d'utilisateur sont bien renovées") 
         } catch (e) {
-        res.status(500).json(e)
+        next(ApiError.internal(e.message))
         } 
     }
 }

@@ -9,7 +9,7 @@ class ShipmentController{
             const shipment = await Shipment.create({})// создание shipment
             return res.status(201).json(shipment)
         }catch (e) {
-            res.status(500).json(e)
+            next(ApiError.badRequest(e.message))
             } 
         }
 
@@ -18,7 +18,7 @@ class ShipmentController{
         const shipments = await Shipment.getAll()
         return res.status(200).json(shipments)
        }catch (e) {
-        res.status(500).json(e)
+        next(ApiError.notFound(e.message))
         } 
     }
 
@@ -28,7 +28,7 @@ class ShipmentController{
         const shipment = await Shipment.getOne()
         return res.status(200).json(shipment)
     }catch (e) {
-        res.status(500).json(e)
+        next(ApiError.notFound(e.message))
         } 
     }
 
@@ -38,7 +38,7 @@ class ShipmentController{
         const deletedShipment = await Shipment.destroy()
         return res.status(200).json("Cette livraison est bien supprimée")
     }catch (e) {
-        res.status(500).json(e)
+        next(ApiError.internal(e.message))
         } 
     }
 
@@ -48,7 +48,7 @@ class ShipmentController{
         const updatedShipment = await Shipment.destroy()
         return res.status(200).json("Cette livraison est bien renovée")
     }catch (e) {
-        res.status(500).json(e)
+        next(ApiError.internal(e.message))
         } 
     }
 }
