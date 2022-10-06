@@ -6,8 +6,8 @@ const checkRole = require('../middleware/checkRoleMiddleware')
 router.post('/', checkRole('ADMIN'),categoryController.create)
 router.get('/', categoryController.getAll)
 router.get('/:id', categoryController.getOne)
-router.delete('/', categoryController.delete,)
-router.put('/', categoryController.put,)
+router.delete('/',checkRole('ADMIN'), categoryController.delete,)
+router.put('/',  checkRole('ADMIN'),categoryController.put,)
 
 
 module.exports = router

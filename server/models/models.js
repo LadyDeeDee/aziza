@@ -6,7 +6,7 @@ const User = sequelize.define('user', {
     name: {type: DataTypes.STRING, allowNull: true,},
     surname: {type: DataTypes.STRING, allowNull: true,},
     dateOfBirth: {type: DataTypes.DATE, allowNull: true,},
-    phone: {type: DataTypes.INTEGER, allowNull: false,},
+    phone: {type: DataTypes.INTEGER, allowNull: true,},
     email: {type: DataTypes.STRING, unique: true, allowNull: false,},
     password: {type: DataTypes.STRING, allowNull: false,},
     role: {type: DataTypes.STRING, defaultValue: 'USER'},
@@ -29,7 +29,7 @@ const Product = sequelize.define("product", {
     title: {type: DataTypes.STRING, allowNull: false,},
     description: {type: DataTypes.STRING},
     unit_price: {type: DataTypes.INTEGER, allowNull: false,},
-    img: {type: DataTypes.BLOB},
+    img: {type: DataTypes.STRING},
 })
 
 const Storage = sequelize.define("storage", {
@@ -37,7 +37,7 @@ const Storage = sequelize.define("storage", {
     quantity: {type: DataTypes.INTEGER, allowNull: false,},
     color: {type: DataTypes.STRING, allowNull: false,},
     size: {type: DataTypes.STRING},
-    img: {type: DataTypes.BLOB},
+    img: {type: DataTypes.STRING},
 })
 
 const Category = sequelize.define("category", {

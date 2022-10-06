@@ -1,7 +1,9 @@
 const ApiError = require("../error/ApiError")
 const bcrypt = require('bcrypt')
+const {validationResult} = require("express-validator")
 const jwt = require('jsonwebtoken')
-const {User} = require('../models/models')
+const {User, Basket} = require('../models/models')
+
 
 const generateJwt = (id, email, role) => {
     return jwt.sign(
@@ -10,39 +12,41 @@ const generateJwt = (id, email, role) => {
         )
 }
 
-class AuthController{
+class AuthController{    
     async registration(req, res, next){
-        const{email, password, phone} =req.body
-        console.log("auth....",req.body)
+        const errors = validationResult(req)
+        if(!errors.isEmpty) {
+            return res.status(400).json({ errors: errors.array()})
+        }
+        const{email, password} = req.body
         if(!email || !password){
-            return next(ApiError.badRequest('Wrong email or password!'))
+            return next(ApiError.badRequest("L'email ou le mot de passe est incorect!"))
         }
         const candidate = await User.findOne({where: {email}})
         if(candidate){
-            return next(ApiError.badRequest('The user with the same email already exist '))
+            return next(ApiError.badRequest("L'utilisateur avec le même email exist déjà"))
         }
         const hashPassword = await bcrypt.hash(password, 5)
-        const user = await User.create({email, phone, password: hashPassword})
+        const user = await User.create({email, password: hashPassword})
         const token = generateJwt(user.id, user.email, user.role)
         return res.json({token})
     }
+
     async login(req, res, next){
         const {email, password} = req.body
-        console.log("my body: ",req)
         const user = await User.findOne({where: {email: email}})
-        console.log(user)
         if (!user) {
-            return next(ApiError.internal('User is not found'))
+            return next(ApiError.notFound("L'utilisateur n'est pas trouvé"))
         }
         let comparePassword = bcrypt.compareSync(password, user.password)
         if (!comparePassword) {
-            return next(ApiError.internal('The wrong password'))
+            return next(ApiError.badRequest("Le mot de passe est incorrect"))
         }
         const token = generateJwt(user.id, user.email, user.role)
         return res.json({token})
-
         
     }
+
     async auth(req, res, next){
         const token = generateJwt(req.user.id, req.user.email, req.user.role)
         return res.json({token})

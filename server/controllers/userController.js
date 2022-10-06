@@ -8,7 +8,7 @@ class UserController{
         try {
         const{id, name, surname, dateOfBirth, phone,email, password, adress1, adress2, role} = req.body// название User
         const user = await User.create({})// создание user
-        return res.status(201).json(user)
+        return res.status(201).json({message: "Le nouvel utilisateur est crée"})
         } catch (e) {
          next(ApiError.badRequest(e.message))
     }

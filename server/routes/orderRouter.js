@@ -1,13 +1,15 @@
 const Router = require('express')
 const router = new Router()
 const orderController = require('../controllers/orderController')
+//const checkRole = require('../middleware/checkRoleMiddleware')
+const ifTheUserAuth = require('../middleware/authMiddleware')
 
-
-router.post('/', orderController.create)
+typeof ifTheUserAuth
 router.get('/', orderController.getAll)
-router.get('/:id', orderController.getOne)
-router.delete('/:id', orderController.delete)
-router.put('/:id', orderController.put)
+router.post('/', ifTheUserAuth(), orderController.create)
+router.get('/:id',ifTheUserAuth(),  orderController.getOne)
+router.delete('/:id', ifTheUserAuth(), orderController.delete)
+router.put('/:id', ifTheUserAuth(), orderController.put)
 
 
 module.exports = router

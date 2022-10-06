@@ -7,18 +7,17 @@ module.exports = function (role) {
       } 
       
        try {
-        const token = req.headers.authorization.split('')[1]// tokenType token
+        const token = req.headers.authorization.split(' ')[1]// tokenType token
+        console.log("'im here...",token)
         if (!token) {
-            return res.status(401).json({message:'The user is not authorized'})
+            return res.status(401).json({message: "L'utilisateur n'est pas autorisé"})
         }
         const decoded = jwt.verify(token, process.env.SECRET_KEY)
         if(decoded.role !==role){
             return res.status(403).json('The access denied')
         }
-
-        req.user = decoded
         next()
     } catch (e) {
-        res.status(401).json({message:'The user is not authorized'})
+        res.status(401).json({message: "L'utilisateur n'est pas autorisé"})
     }
 }}

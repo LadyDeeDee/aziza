@@ -1,13 +1,15 @@
 const Router = require('express')
 const router = new Router()
 const shipmentController = require('../controllers/shipmentController')
+const checkRole = require('../middleware/checkRoleMiddleware')
 
 
-router.post('/', shipmentController.create)
+
+router.post('/', checkRole('ADMIN'), shipmentController.create)
 router.get('/', shipmentController.getAll)
 router.get('/:id', shipmentController.getOne)
-router.delete('/:id', shipmentController.delete)
-router.put('/:id', shipmentController.put)
+router.delete('/:id',checkRole('ADMIN'),  shipmentController.delete)
+router.put('/:id', checkRole('ADMIN'),  shipmentController.put)
 
 
 module.exports = router
