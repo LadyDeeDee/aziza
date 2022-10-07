@@ -1,12 +1,13 @@
 import { Component } from "react";
 import { Registration } from "../src/components/Registration/Registration";
-import ProductPage   from "./pages/ProductPage";
-import  Shop     from "./pages/Shop";
+import ProductPage  from "./pages/ProductPage";
+import  Catalog  from "./pages/Catalog";
 import Auth  from "./pages/Auth";
 import Admin from "./pages/Admin";
-import Basket from "./pages/Basket";
+import OrderDetails from "./pages/OrderDetailsPage";
+import Order from "./pages/OrderPage";
 import ContactForm from "./pages/ContactForm";
-import { ADMIN_ROUTE, BASKET_ROUTE, SHOP_ROUTE, LOGIN_ROUTE,REGISTRATION_ROUTE, PRODUCT_ROUTE, CONTACTFORM_ROUTE} from "./utils/consts";
+import { ADMIN_ROUTE, ORDER_ROUTE, ORDERDETAILS_ROUTE, CATALOG_ROUTE, LOGIN_ROUTE,REGISTRATION_ROUTE, PRODUCT_ROUTE, CONTACTFORM_ROUTE} from "./utils/consts";
 
 export const  authRoutes = [
     {
@@ -14,15 +15,19 @@ export const  authRoutes = [
         Component: Admin
     },
     {
-        path: BASKET_ROUTE,
-        Component: Basket
+        path: ORDER_ROUTE,
+        Component: Order
+    },
+    {
+        path: ORDERDETAILS_ROUTE,
+        Component: OrderDetails
     }
 ]
 
 export const  publicRoutes = [
     {
-        path: SHOP_ROUTE,
-        Component: Shop
+        path: CATALOG_ROUTE,
+        Component: Catalog
     },
     {
         path: LOGIN_ROUTE,

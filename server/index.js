@@ -25,7 +25,7 @@ app.use(errorHandler)
 const start = async () => { //функция для подключения к базе данных; она асихронна, так как все операции с БД - асинхронны
  try{ //функцию оборачиваем в блок try-catch для отлова потенциально возможных ошибок
    await sequelize.authenticate()//функция, с помощью к. б. устанавливаться подключение к БД
-   await sequelize.sync({alter: false, force: true})//функция, к. б. сверять состояние БД со описанной нами схемой
+   await sequelize.sync({alter: true, force: false})//функция, к. б. сверять состояние БД со описанной нами схемой
     app.listen(3001, () => console.log(`Server started on port 3001`))
 } catch (e) {
     console.log(e)

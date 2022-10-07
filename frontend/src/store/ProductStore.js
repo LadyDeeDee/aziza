@@ -11,7 +11,11 @@ export default class ProductStore {
         {id: 1, name: 'Robe jaune', price: 85},
         {id: 2, name: 'Costume à pantalones', price: 110}
 
-    ]}
+    ]
+    this._selectedCategory = {}
+
+    makeAutoObservable(this)
+}
 
     setCategories(categories) {
         this._categories = categories
@@ -20,12 +24,22 @@ export default class ProductStore {
     setProducts(products) {
         this._products = products
     }   
-       
-    get IsAuth() {
-        return this._isAuth 
+     
+    setSelectedCategory(category) {
+        this._selectedCategory = category
+
     }
 
-    get User() {
-        return this._user 
-    }   
+    get categories() {
+        return this._categories
+    }
+
+    get products() {
+        return this._products
+    }
+
+    get selectedCategory() {
+        return this._selectedCategory
+    }
+
 }

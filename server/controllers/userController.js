@@ -35,7 +35,7 @@ class UserController{
 
     async delete(req, res){
         try {
-        const user = req.params
+        const user = req.params()
         const deletedUser = await User.destroy()
         return res.status(200).json("L'utilisateur est bien supprimé")
         } catch (e) {

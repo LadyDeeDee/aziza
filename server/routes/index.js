@@ -17,6 +17,6 @@ router.use('/order', orderRouter)
 router.use('/orderDetails', orderDetailsRouter)
 router.use('/category', categoryRouter)
 router.use('/storage',storageRouter)
-router.use('/storage',shipmentRouter)
+router.use('/order',shipmentRouter)
 
 module.exports = router
