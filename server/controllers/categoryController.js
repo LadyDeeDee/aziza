@@ -15,7 +15,7 @@ class CategoryController{
 
     async getAll(req, res){
         try{
-        const categories = await Category.getAll()
+        const categories = await Category.findAll()
         return res.status(200).json(categories)
     }catch (e) {
         next(ApiError.notFound(e.message))
@@ -25,7 +25,7 @@ class CategoryController{
     async getOne(req, res){
         try{
         const {id} = req.params
-        await Category.getOne()
+        await Category.findOne({id})
         return res.status(200).json(id)
     }   catch (e) {
         next(ApiError.notFound(e.message))
@@ -34,8 +34,7 @@ class CategoryController{
 
     async delete(req, res){
         try{
-        const category = req.params
-        const deletedCategory = await Category.destroy()
+        const deletedCategory = await Category.destroy({id})
         return res.status(200).json("La catégorie est bien supprimée")        
     }   catch (e) {
         next(ApiError.internal(e.message))
@@ -44,8 +43,7 @@ class CategoryController{
 
     async put(req, res){
         try{
-        const category = req.params
-        const updatedCategory = await Category.update()
+        const updatedCategory = await Category.update({id})
         return res.status(200).json("La catégorie est bien renovée") 
     }   catch (e) {
         next(ApiError.internal(e.message))

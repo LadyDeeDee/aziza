@@ -8,7 +8,7 @@ class StorageController{
     try{
         const{product_id, quantity, color, size} = req.body// название Storage
         const {pictures} = req.files
-        const storage = await Storage.create({})// создание storage
+        const storage = await Storage.create({product_id, quantity, color, size})// создание storage
         return res.status(201).json(storage)
     }catch (e) {
         next(ApiError.badRequest(e.message))
@@ -17,8 +17,7 @@ class StorageController{
 
     async getAll(req, res){
         try{
-        const storage = req.params
-        const storages = await Storage.getAll()
+        const storages = await Storage.findAll()
         return res.status(200).json(storages)
     }catch (e) {
         next(ApiError.notFound(e.message))
@@ -28,7 +27,7 @@ class StorageController{
     async getOne(req, res){
         try{
         const {id} = req.params
-        const storage = await Storage.getOne()
+        const storage = await Storage.findOne({id})
         return res.status(200).json(storage)
     }catch (e) {
         next(ApiError.notFound(e.message))
@@ -37,8 +36,8 @@ class StorageController{
 
     async delete(req, res){
         try{
-        const storage = req.params
-        const deletedStorage = await Storage.destroy()
+        const {id} = req.params
+        const deletedStorage = await Storage.destroy({id})
         return res.status(200).json('Le stokage est bien supprimé')
     }catch (e) {
         next(ApiError.internal(e.message))
@@ -47,8 +46,8 @@ class StorageController{
     
     async put(req, res){
         try{
-        const storage = req.params
-        const updatedStorage = await Storage.update()
+        const {id} = req.params
+        const updatedStorage = await Storage.update({id})
         return res.status(200).json('Le stokage est bien renové')
     }catch (e) {
         next(ApiError.internal(e.message))

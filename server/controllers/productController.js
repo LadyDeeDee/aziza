@@ -33,7 +33,7 @@ class ProductController{
     async getOne(req, res, next){
         const {id} = req.params
         if(!id){
-            const product = await Product.findOne() 
+            const product = await Product.findOne({id}) 
             return res.status(200).json(product);
         }
         next(ApiError.notFound(e.message))
@@ -43,7 +43,7 @@ class ProductController{
     async delete(req, res, next){
         const {id} = req.params
         if(!id){
-        const product = await Product.destroy() 
+        const product = await Product.destroy({id}) 
         return res.status(200).json("Le produit est bien supprimé");
        }
        next(ApiError.internal(e.message))
@@ -52,7 +52,7 @@ class ProductController{
     async put(req, res, next){
         const {id} = req.params
         if(!id){
-        const product = await Product.update()
+        const product = await Product.update({id})
         return res.status(200).json("Le produit est bien renové");
     } next(ApiError.internal(e.message))
   }
