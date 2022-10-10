@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Admin = () => {
+const Error = () => {
     return (
         <div>
-            Admin
+            ERROR
         </div>
     );
 };
 
-export default Admin;
+export default Error;
