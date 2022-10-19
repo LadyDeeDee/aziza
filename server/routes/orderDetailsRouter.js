@@ -4,7 +4,7 @@ const orderDetailsController = require('../controllers/orderDetailsController')
 const ifTheUserAuth = require('../middleware/authMiddleware')
 
 
-
+typeof ifTheUserAuth
 router.post('/order/:order_id', ifTheUserAuth(), orderDetailsController.create)
 router.get('/order/:order_id', ifTheUserAuth(), orderDetailsController.getAll)
 router.get('/order/:order_id', orderDetailsController.getOne)

@@ -6,15 +6,14 @@ const models = require('./models/models')
 const cors = require('cors')
 const fileUpload = require ('express-fileupload')
 const router = require('./routes/index')
-const errorHandler = require('./middleware/ErrorHandlingMiddleware')
 const path = require('path')
-
+const errorHandler = require('./middleware/ErrorHandlingMiddleware')
 
 const app = express()
 
-app.use(cors())// 
+app.use(cors())// для отправки запросов с браузера
 app.use(express.urlencoded({extended: true}));
-app.use(express.json())
+app.use(express.json())//для возможности приложения парсить json формат
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpload({}))
 app.use('/api', router)

@@ -3,15 +3,15 @@ const ApiError = require('../error/ApiError')
 
 
 class UserController{
-
     async create(req, res) {
         try {
-        const{name, surname, dateOfBirth, phone,email, password, adress1, adress2, role} = req.body// название User
-        const user = await User.create({name, surname, dateOfBirth, phone,email, password, adress1, adress2, role})// создание user
+            console.log(req.body)
+        const{email, password, role} = req.body// название User
+        const user = await User.create({email, password, role})// создание user
         return res.status(201).json({message: "Le nouvel utilisateur est crée"})
         } catch (e) {
          next(ApiError.badRequest(e.message))
-    }
+        }
     }
 
     async getAll(req, res) {

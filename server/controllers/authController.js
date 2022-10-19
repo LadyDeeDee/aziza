@@ -18,7 +18,7 @@ class AuthController{
         if(!errors.isEmpty) {
             return res.status(400).json({ errors: errors.array()})
         }
-        const{email, password} = req.body
+        const{email, password, gender, firstName, lastName} = req.body
         if(!email || !password){
             return next(ApiError.badRequest("L'email ou le mot de passe est incorect!"))
         }
@@ -27,9 +27,9 @@ class AuthController{
             return next(ApiError.badRequest("L'utilisateur avec le même email exist déjà"))
         }
         const hashPassword = await bcrypt.hash(password, 5)
-        const user = await User.create({email, password: hashPassword})
+        const user = await User.create({email, password: hashPassword, gender, firstName, lastName})
         const token = generateJwt(user.id, user.email, user.role)
-        return res.json({token})
+        return res.status(201).json({message: "user created", token})
     }
 
     async login(req, res, next){
@@ -43,15 +43,10 @@ class AuthController{
             return next(ApiError.badRequest("Le mot de passe est incorrect"))
         }
         const token = generateJwt(user.id, user.email, user.role)
-        return res.json({token})
+        return res.status(200).json({token})
         
     }
 
-    async auth(req, res, next){
-        const token = generateJwt(req.user.id, req.user.email, req.user.role)
-        return res.json({token})
-      
-    }
 }
 
 module.exports = new AuthController()

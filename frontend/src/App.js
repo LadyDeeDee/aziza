@@ -1,12 +1,15 @@
 import React from "react";
 import AppRouter from "./components/AppRouter";
-import NavBar from "./components/NavBar";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import "./style.css"
 
 const App = () => {
   return (
     <>
-      <NavBar />
+      <Header />
       <AppRouter />
+      <Footer />
     </>
   );
 };

@@ -2,18 +2,17 @@ const {Category} = require('../models/models')
 const ApiError = require('../error/ApiError')
 
 class CategoryController{
-
-    async create(req, res){
+    async create(req, res, next){
         try{
-        const {category_name} = req.body// название Category
-        const category = await Category.create({category_name})// создание category
-        return res.status(201).json(category)
-    }catch (e) {
-        next(ApiError.badRequest(e.message))
+            const {name} = req.body// название Category
+            const category = await Category.create({name})// создание category
+            return res.status(201).json(category)
+        }catch (e) {
+            next(ApiError.badRequest(e.message))
         } 
     }
 
-    async getAll(req, res){
+    async getAll(req, res, next){
         try{
         const categories = await Category.findAll()
         return res.status(200).json(categories)
@@ -22,7 +21,7 @@ class CategoryController{
         } 
     }
 
-    async getOne(req, res){
+    async getOne(req, res, next){
         try{
         const {id} = req.params
         await Category.findOne({id})
@@ -32,7 +31,7 @@ class CategoryController{
         } 
     }
 
-    async delete(req, res){
+    async delete(req, res, next){
         try{
         const deletedCategory = await Category.destroy({id})
         return res.status(200).json("La catégorie est bien supprimée")        
@@ -41,7 +40,7 @@ class CategoryController{
         } 
     }
 
-    async put(req, res){
+    async put(req, res, next){
         try{
         const updatedCategory = await Category.update({id})
         return res.status(200).json("La catégorie est bien renovée") 

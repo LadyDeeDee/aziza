@@ -8,7 +8,6 @@ module.exports = function (role) {
       
        try {
         const token = req.headers.authorization.split(' ')[1]// tokenType token
-        console.log("'im here...",token)
         if (!token) {
             return res.status(401).json({message: "L'utilisateur n'est pas autorisé"})
         }
