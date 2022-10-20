@@ -43,11 +43,11 @@ export default function Registration() {
     }
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
+        <div className="wrapper">
+            <form onSubmit={handleSubmit} className="form">
                 <input type="text" placeholder='Fiest Name' onChange={(e) => setFirstName(e.target.value)}/>
                 <input type="text" placeholder='Last Name' onChange={(e) => setLastName(e.target.value)}/>
-                <div>
+                <div className="radio-buttons">
                     <div>
                         <input type="radio" name="gender" value="male" onChange={(e) => setGender(e.target.value)}/>
                         <label htmlFor="gender">Male</label>
@@ -63,7 +63,7 @@ export default function Registration() {
                 <input type="submit" value="Join now" />
             </form> 
             <aside>
-                <h5></h5>
+                <h5>text</h5>
                 <p></p>
                 <ul>
                     <li></li>
@@ -73,7 +73,7 @@ export default function Registration() {
                     <li></li>
                 </ul>
             </aside>
-        </>
+        </div>
     )
     
 }

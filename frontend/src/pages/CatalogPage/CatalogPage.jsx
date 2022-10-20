@@ -33,7 +33,9 @@ export default function CatalogPage () {
                     </div>)
                 }
             </section>
-            <button className="browse_all">Browse all</button>
+            <div className="button-wrapper">
+                <button className="browse_all">Browse all</button>
+            </div>
         </div>
     )
 }

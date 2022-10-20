@@ -5,13 +5,17 @@ import Footer from "./components/Footer/Footer";
 import "./style.css"
 
 const App = () => {
-  return (
-    <>
-      <Header />
-      <AppRouter />
-      <Footer />
-    </>
-  );
+    const path = window.location.pathname;
+    
+    return (
+        <>
+            <Header
+                extraClassName={path === "/" ? "headerMain" : "headerOther"}
+            />
+            <AppRouter/>
+            <Footer/>
+        </>
+    );
 };
 
 export default App;

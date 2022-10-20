@@ -1,5 +1,6 @@
 import React from 'react';
 import "./HomePage.css"
+import Header from "../../components/Header/Header";
 
 import bijouImg from "../../img/bijou.jpg"
 import handsImg from "../../img/hands.jpg"
@@ -20,11 +21,12 @@ import croneLogo from "../../img/crone.svg"
 export default function Home() {
     
     return (
-    <>
+    <div>
+        <div className="img-top"></div>
         <div className="top">
             <h2>RêveZ</h2>
         </div>
-        <div className="middle container">
+        <div className="middle `container">
             <section className="promos">
                 <div className="women">
                     <p>30% OFF FOR WOMEN</p>
@@ -98,7 +100,7 @@ export default function Home() {
                 </div>
             </div>
         </section>
-    </>
+    </div>
     );
 };
 

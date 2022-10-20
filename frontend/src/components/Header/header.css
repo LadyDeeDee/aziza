@@ -13,14 +13,23 @@ body{
 
 .header {
  width: 100%;
- min-height: 840px;
- background-image: url(../../img/mosque.jpg);
  background-repeat: no-repeat;
  background-size: cover;
  background-position: center;
  display: flex;
  align-items: baseline;
  justify-content: space-around;
+}
+
+.headerMain {
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    z-index: 1;
+}
+
+.headerOther {
+    background: #955B75;
+    position: relative;
 }
 
 .main-title {
