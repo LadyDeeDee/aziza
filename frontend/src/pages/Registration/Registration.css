@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Flamenco&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fondamento&display=swap');
+
+.wrapper {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio-buttons {
+    display: flex;
+    gap: 10px;
+}

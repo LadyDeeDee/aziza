@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body{
+    background-color: #EFE3F4;
+}
+
+.header {
+ width: 100%;
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: center;
+ display: flex;
+ align-items: baseline;
+ justify-content: space-around;
+}
+
+.headerMain {
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    z-index: 1;
+}
+
+.headerOther {
+    background: #955B75;
+    position: relative;
+}
+
+.main-title {
+    font-family: 'Flamenco', cursive;
+    font-size: 64px;
+    color: #EFE3F4;
+    padding-top: 2rem;
+    padding-left: 4rem;
+        
+}
+
+.header_right {
+    color: #EFE3F4;
+    display: flex;
+    gap: 32px;
+    padding-top: 4rem;
+}
+
+.header_right img {
+    width: 30px;
+}
+
+
+.menu {
+   color: #EFE3F4;
+   margin-left: 5rem;
+}
+
+@media screen and (max-width: 767px) {
+    .container{
+        padding-left: calc(50% - 368px);
+        padding-right: calc(50% - 368px);
+    }
+    .catalog{
+        grid-gap: 16px;
+        
+    }
+    h2 {
+        padding-top: 23%;
+        z-index: 999;
+        font-size: 56px;
+        color: #EFE3F4;
+        font-family: 'Fondamento', cursive;
+    }
+    
+    .container{
+        max-width: 767px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    
+    h2 {
+        padding-top: 23%;
+        z-index: 999;
+        font-size: 44px;
+        color: #EFE3F4;
+        font-family: 'Fondamento', cursive;
+    }
+    
+    .container{
+       padding-left: 16px;
+       padding-right: 16px;
+       max-width: 375px;
+       margin: 0 auto;
+       display: flex;
+       flex-direction: column;
+    }
+
+    .promos{
+        display: flex;
+       flex-direction: column;
+    }
+
+    .catalog{
+        display: flex;
+       flex-direction: column;
+    }
+ 
+    .services{
+        width: 100%;
+        background-color: #955B75;
+    }
+    
+    .services .container{
+        max-height: 240px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .services h5{
+        padding: 15px 5px;
+        color: #EFE3F4;
+    }
+    
+}

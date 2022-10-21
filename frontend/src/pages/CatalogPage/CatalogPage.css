@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Flamenco&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fondamento&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    width: 1140px;
+    margin: 0 auto;
+}
+
+.catalog{
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 360px);
+    grid-gap: 28px;
+    
+ }
+ 
+ .catalog-title{
+     margin-top: 48px;
+     text-align: center;
+     font-size:30px;
+ }
+ 
+ .paragraph{
+     margin-top: 16px;
+     text-align: center;
+ }
+ 
+ .catalog p{
+     padding: 5px 5px;
+     
+ }
+ .product{
+     background-color: #fff;
+ }
+ 
+ .price{
+     color: red;
+ }
+ 
+ 
