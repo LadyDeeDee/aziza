@@ -59,23 +59,27 @@ const Admin = () => {
             </div>
             <h3 className='create'>Create a product</h3>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="">
-                    Image
-                    <input type="file" name=""/>
-                </label>
+                <div className='namePrice'>
                 <label htmlFor="">
                     Name
                     <input type="text" name="title"  onChange={(e) => setTitle(e.target.value)}/>
                 </label>
                 <label htmlFor="">
-                    price
-                    <input type="number" name="price" onChange={(e)=>setPrice(e.target.value)} />
+                    Price
+                    <input type="number" name="price" onChange={(e)=>setPrice(e.target.value)} />$
                 </label>
+                </div>
                 <label htmlFor="">
-                    description
-                    <textarea name="description" cols="30" rows="10" onChange={(e)=>setDescription(e.target.value)}></textarea>
+                    Description
+                    <textarea name="description" cols="30" rows="5" onChange={(e)=>setDescription(e.target.value)}></textarea>
+                </label>
+                <div className='imageSubmit'>
+                <label htmlFor="">
+                    Image
+                    <input type="file" name=""/>
                 </label>
                 <input type="submit" value="Send" />
+                </div>
             </form>
         </>
     );

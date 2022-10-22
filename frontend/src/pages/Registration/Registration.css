@@ -4,10 +4,11 @@
 .wrapper {
     display: flex;
     gap: 50px;
-    justify-content: center;
+    justify-content: space-evenly;
+    margin-top: 35px;
 }
 
-.form {
+.form , .login{
     display: flex;
     flex-direction: column;
     gap: 10px;

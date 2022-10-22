@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {useNavigate} from "react-router-dom"
 import './Registration.css'
-import axios from 'axios'
+
 
 
 export default function Registration() {
@@ -45,32 +45,35 @@ export default function Registration() {
     return (
         <div className="wrapper">
             <form onSubmit={handleSubmit} className="form">
-                <input type="text" placeholder='Fiest Name' onChange={(e) => setFirstName(e.target.value)}/>
+                <input type="text" placeholder='First Name' onChange={(e) => setFirstName(e.target.value)}/>
                 <input type="text" placeholder='Last Name' onChange={(e) => setLastName(e.target.value)}/>
                 <div className="radio-buttons">
                     <div>
                         <input type="radio" name="gender" value="male" onChange={(e) => setGender(e.target.value)}/>
                         <label htmlFor="gender">Male</label>
                     </div>
-                    <div>
+                    <div className='radio'>
                         <input type="radio" name="gender" value="female" onChange={(e) => setGender(e.target.value)}/>
                         <label htmlFor="gender">Female</label>
                     </div>  
                 </div>
+                
                 <p>Login details</p>
                 <input type="text" placeholder='Email' onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" placeholder='********' onChange={(e) => setPassword(e.target.value)}/>
                 <input type="submit" value="Join now" />
+                
             </form> 
             <aside>
-                <h5>text</h5>
-                <p></p>
+                <h5>LOYALTY HAS ITS PERKS</h5>
+                <p>Get in on the loyalty program where you can earn points and unlock serious perks.</p>
+                <p>Starting with these as soon as you join:</p>
                 <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>15% off welcome offer</li>
+                    <li>Free shipping, returns and exchanges on all orders</li>
+                    <li>$10 off a purchase on your birthday</li>
+                    <li>Early access to products</li>
+                    <li>Exclusive offers & rewards</li>
                 </ul>
             </aside>
         </div>
