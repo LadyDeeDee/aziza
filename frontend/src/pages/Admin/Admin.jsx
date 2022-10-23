@@ -63,7 +63,7 @@ const Admin = () => {
                 </label>
                 <label htmlFor="price">
                     Price
-                    <input type="number" name="price" onChange={(e)=>setPrice(e.target.value)} />$
+                    <input type="number" name="price" onChange={(e)=>setPrice(e.target.value)} />
                 </label>
 
                 <label htmlFor="description">
