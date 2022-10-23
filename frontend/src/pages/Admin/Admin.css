@@ -13,20 +13,51 @@
 }
 
 form{
-    margin-top: 20px;
+    margin: 20px 0;
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    color: #955B75
-    ;
+    color: #955B75;
+}
+label {
+    display: flex;
+    flex-direction: column;
 }
 
-.namePrice, .imageSubmit{
- display: flex;
- flex-direction: column;   
+input{
+    height: 50px;
 }
-
 input, textarea{
     margin-top: 5px;
     border: 1px solid #955B75;
+    outline:none;
+    width: 358px;
+    padding: 0 10px;
+}
+
+textarea{
+    padding-top: 5px;
+}
+
+input[type="file"]{
+    padding-left:0;
+}
+
+input::file-selector-button{
+    background-color: #F16D7F;
+    outline: none;
+    border:none;
+    height: 100%;
+    color:#ffffff;
+    cursor: pointer;
+}
+
+.btn-submit{
+    width: 167px;
+    background-color: #F16D7F;
+    color: #ffffff;
+    margin-top: 25px;
+    padding:0;
+    border:none;
 }

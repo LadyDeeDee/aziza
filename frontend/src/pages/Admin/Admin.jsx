@@ -54,32 +54,28 @@ const Admin = () => {
     
     return (
         <>
-            <div>
-                <h3 className="admin">Admin Page</h3>
-            </div>
-            <h3 className='create'>Create a product</h3>
+            <h3 className="admin">Admin Page</h3>
+            <h4 className='create'>Create a product</h4>
             <form onSubmit={handleSubmit}>
-                <div className='namePrice'>
-                <label htmlFor="">
+                <label htmlFor="title">
                     Name
                     <input type="text" name="title"  onChange={(e) => setTitle(e.target.value)}/>
                 </label>
-                <label htmlFor="">
+                <label htmlFor="price">
                     Price
                     <input type="number" name="price" onChange={(e)=>setPrice(e.target.value)} />$
                 </label>
-                </div>
-                <label htmlFor="">
+
+                <label htmlFor="description">
                     Description
                     <textarea name="description" cols="30" rows="5" onChange={(e)=>setDescription(e.target.value)}></textarea>
                 </label>
-                <div className='imageSubmit'>
-                <label htmlFor="">
+
+                <label htmlFor="file">
                     Image
-                    <input type="file" name=""/>
+                    <input type="file" name="file"/>
                 </label>
-                <input type="submit" value="Send" />
-                </div>
+                <input type="submit" value="Send" className="btn-submit"/>
             </form>
         </>
     );
