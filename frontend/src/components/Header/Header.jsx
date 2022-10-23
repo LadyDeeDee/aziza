@@ -59,13 +59,13 @@ const Header = observer(({
                 
                 <h3 className="main-title">AzIzA</h3>
                 
-                <section className="header_right">
+                <ul className="header_right">
                     <Link to="/login"><img src={personImg} alt="person"/></Link>
                     <Link to="/login"><img src={bascketImg} alt="basket"/></Link>
                     <Link to="/catalog"><img src={loopImg} alt="loop"/></Link>
                     {/**создать кнопку Админа, к.б. видна и доступна только ему. Для этого реализу-
                      ем проверку пользователя на авторизацию **/}
-                </section>
+                </ul>
             </header>
         </>
     );

@@ -56,3 +56,30 @@ footer .container{
 
 
 
+@media screen and (max-width: 667px){
+    .subscribe .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 35px 0;
+    }
+
+    .avis {
+        margin-bottom: 35px;
+    }
+    .avis p {
+        width: 80%;
+    }
+
+    .subscription input {
+        margin: 0;
+    }
+
+    .copyright .container {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-around;
+        height: 143px;
+    }
+}

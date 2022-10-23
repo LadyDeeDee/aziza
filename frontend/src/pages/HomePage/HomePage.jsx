@@ -1,11 +1,6 @@
 import React from 'react';
 import "./HomePage.css"
-import Header from "../../components/Header/Header";
 
-import bijouImg from "../../img/bijou.jpg"
-import handsImg from "../../img/hands.jpg"
-import shoesImg from "../../img/shoes.jpg"
-import longImg from "../../img/long.jpg"
 import firstImg from "../../img/first.jpg"
 import secondImg from "../../img/second.jpg"
 import thirdImg from "../../img/third.jpg"
@@ -29,18 +24,14 @@ export default function Home() {
         <div className="middle `container">
             <section className="promos">
                 <div className="women">
-                    <p>30% OFF FOR WOMEN</p>
-                    <img src={bijouImg} alt="bijoux"/>
+                    <p><span>30% OFF</span> FOR WOMEN</p>
                 </div>
                 <div className="deal">
-                    <p>30% OF FOR WOMEN</p>
-                    <img src={handsImg} alt="bijoux"/>
+                    <p><span>30% OF </span>FOR WOMEN</p>
                 </div>
-                <div className="shoes"><p>30% OFF FOR WOMEN</p>
-                    <img src={shoesImg} alt="bijoux"/>
+                <div className="shoes"><p><span>30% OFF</span> FOR WOMEN</p>
                 </div>
                 <div className="accessoires"><p>Accessoires</p>
-                    <img src={longImg} alt=""/>
                 </div>
             </section>
             <h3 className="catalog-title">Fetured Items</h3>
