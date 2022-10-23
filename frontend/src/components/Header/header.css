@@ -46,8 +46,12 @@ body{
     display: flex;
 }
 
-.header_right img {
+.header_right Link {
     width: 30px;
+}
+
+.basket {
+    margin: 0 15px;
 }
 
 

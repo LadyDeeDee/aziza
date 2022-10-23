@@ -45,10 +45,11 @@ export default function Registration() {
     return (
         <div className="wrapper">
             <form onSubmit={handleSubmit} className="form">
+                <p>Your name</p>
                 <input type="text" placeholder='First Name' onChange={(e) => setFirstName(e.target.value)}/>
                 <input type="text" placeholder='Last Name' onChange={(e) => setLastName(e.target.value)}/>
                 <div className="radio-buttons">
-                    <div>
+                    <div className='radio'>
                         <input type="radio" name="gender" value="male" onChange={(e) => setGender(e.target.value)}/>
                         <label htmlFor="gender">Male</label>
                     </div>
@@ -61,7 +62,7 @@ export default function Registration() {
                 <p>Login details</p>
                 <input type="text" placeholder='Email' onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" placeholder='********' onChange={(e) => setPassword(e.target.value)}/>
-                <input type="submit" value="Join now" />
+                <input type="submit" value="Join now" className="btn-submit"/>
                 
             </form> 
             <aside>

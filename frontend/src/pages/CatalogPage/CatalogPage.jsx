@@ -33,8 +33,8 @@ export default function CatalogPage () {
                         <h5>{product.name}</h5>
                         <p>{product.description}</p>
                         <p className='price'>{product.price}</p>
-                    </div>)
-                }
+                    </div>
+                )}
             </section>
             <div className="button-wrapper">
                 <button className="browse_all">Browse all</button>

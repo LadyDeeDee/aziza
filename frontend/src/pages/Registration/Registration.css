@@ -8,13 +8,58 @@
     margin-top: 35px;
 }
 
-.form , .login{
+.form {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
+.form p {
+    align-self: flex-start;
+}
+
 .radio-buttons {
     display: flex;
-    gap: 10px;
+    justify-content: flex-start;
+    width: 358px;
+    align-items: center;
+}
+
+.radio {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+}
+
+input[type="radio"]{
+    padding: 5px;
+    height: 20px;
+    width: 20%;
+}
+
+.btn-submit{
+    width: 167px;
+    background-color: #F16D7F;
+    color: #ffffff;
+    margin-top: 25px;
+    padding:0;
+    border:none;
+    align-self: flex-start;
+}
+
+@media screen and (max-width: 667px){
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    aside {
+        width: 95%;
+        margin: 0 auto;
+    }
 }
