@@ -6,6 +6,18 @@
     padding:0;
 }
 
+h1{
+    height: 148px;
+    width: 100%;
+    background-color: #F8F3F4;
+    color:#F16D7F;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-transform: uppercase;
+    padding-left: 25px;
+}
+
 .admin, .create{
     margin-top: 20px;
     text-align: center;
@@ -61,4 +73,12 @@ input::file-selector-button{
     margin-top: 25px;
     padding:0;
     border:none;
+    align-self:center;
+}
+
+@media screen and (max-width: 667px){
+    h1 {
+        padding-left: 0;
+        justify-content: center;
+    }
 }

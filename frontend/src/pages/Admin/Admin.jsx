@@ -54,7 +54,7 @@ const Admin = () => {
     
     return (
         <>
-            <h3 className="admin">Admin Page</h3>
+            <h1>Admin</h1>
             <h4 className='create'>Create a product</h4>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="title">
